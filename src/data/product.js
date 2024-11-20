@@ -313,7 +313,7 @@ export default [
       images: [
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike15.png",
       ],
-      name: "Nike Delta",
+      name: "Nike Delta ",
       price: 128,
       sizes: [39, 41, 42, 46],
       description: `Inspired by the original that debuted in 1985, the Air Jordan 1 Low delivers a clean, classic look that's familiar yet fresh. With an iconic design that blends seamlessly with any fit, these shoes are perfect for taking charge.

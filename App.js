@@ -1,18 +1,17 @@
+import Navigation from './src/navigation'; // Remplacez par le chemin correct vers Navigation.js
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-
-import products from './src/data/product';
-import ProductScreen from './src/screens/ProductScreen'; 
+import { StyleSheet } from 'react-native';
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <ProductScreen />
+    <>
+      <Navigation />
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
