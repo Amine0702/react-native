@@ -1,16 +1,22 @@
 import Navigation from './src/navigation'; // Remplacez par le chemin correct vers Navigation.js
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
+
+
 
 
 export default function App() {
   return (
-    <>
+    <Provider store={store}> 
       <Navigation />
       <StatusBar style="auto" />
-    </>
+    </Provider>
   );
 }
+
+ 
 
 
 const styles = StyleSheet.create({

@@ -1,12 +1,15 @@
 import { StyleSheet, View, Image, FlatList, Pressable } from 'react-native';
-import product from '../data/product'; // Mise à jour du chemin
+import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
-const ProductScreen = ({navigation}) => {
-  
+const ProductScreen = () => {
+  const navigation = useNavigation();
+  const products = useSelector(state => state.products.products);
+
   return (
     <View style={styles.container}>
       <FlatList
-        data={product}
+        data={products}
         renderItem={({ item }) => (
           <Pressable
             onPress={() => navigation.navigate('Product Detail', { id: item.id })}

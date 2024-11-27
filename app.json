@@ -3,7 +3,10 @@
     "name": "adidas",
     "slug": "adidas",
     "version": "1.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "newArchEnabled": true,
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,15 +23,14 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.adidas"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    
     "experiments": {
       "bridgeless": false
     }
-    }
   }
-
+}
