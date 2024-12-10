@@ -1,23 +1,28 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, useWindowDimensions, ScrollView, Pressable } from 'react-native';
-import product from '../data/product';
 import cart from '../data/cart'; // Importez les données du panier
+import { useSelector } from 'react-redux';
+import { State } from 'react-native-gesture-handler';
 
-const ProductDetailsScreen = ({ route, navigation }) => {
-  const { id } = route.params; // Récupère l'ID du produit passé en paramètre
-  const Products = product.find((p) => p.id === id); // Trouve le produit correspondant
+
+
+const ProductDetailsScreen = ({ navigation }) => {
+const product=useSelector((State)=>State.products.selectedProduct)
+
   const { width } = useWindowDimensions();
+
+
 
   const handleAddToCart = () => {
     // Ajouter le produit sélectionné au panier
-    const existingItem = cart.find((item) => item.product.id === Products.id);
+    const existingItem = cart.find((item) => item.product.id === product.id);
     if (existingItem) {
       // Si le produit est déjà dans le panier, augmentez sa quantité
       existingItem.quantity += 1;
     } else {
       // Sinon, ajoutez le produit au panier
       cart.push({
-        product: Products,
+        product: product,
         size: 42, // Taille par défaut ou sélectionnée
         quantity: 1,
       });
@@ -30,7 +35,7 @@ const ProductDetailsScreen = ({ route, navigation }) => {
     <View style={{ flex: 1 }}>
       <ScrollView>
         <FlatList
-          data={Products.images}
+          data={product.images}
           renderItem={({ item }) => (
             <Image source={{ uri: item }} style={{ width, aspectRatio: 1 }} />
           )}
@@ -39,9 +44,9 @@ const ProductDetailsScreen = ({ route, navigation }) => {
           pagingEnabled
         />
         <View style={{ padding: 20 }}>
-          <Text style={styles.title}>{Products.name}</Text>
-          <Text style={styles.price}>${Products.price}</Text>
-          <Text style={styles.description}>{Products.description}</Text>
+          <Text style={styles.title}>{product.name}</Text>
+          <Text style={styles.price}>${product.price}</Text>
+          <Text style={styles.description}>{product.description}</Text>
         </View>
       </ScrollView>
       <Pressable style={styles.button} onPress={handleAddToCart}>
